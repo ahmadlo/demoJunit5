@@ -1,19 +1,18 @@
 package com.ahmad;
 
 import static org.hamcrest.CoreMatchers.hasItems;
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 
 public class TestFixturesExample {
 	
@@ -55,26 +54,26 @@ public class TestFixturesExample {
 	private static TestArrayData testArrayData;
 	private static TestNumberAndStringData testNumberAndStringData;
 	
-	@BeforeClass
+	  @BeforeAll
 	  public static void setUpClass() {
 	    System.out.println("@BeforeClass setUpClass");
 	    testNumberAndStringData = new TestNumberAndStringData();
 	  }
 
-	  @AfterClass
+	  @AfterAll
 	  public static void tearDownClass()  {
 	    System.out.println("@AfterClass tearDownClass");
 	    
 	    testNumberAndStringData = null;
 	  }
 	
-	  @Before
+	  @BeforeEach
 	  public  void setUp() {
 	    System.out.println("@Before setUp");
 	    testArrayData = new TestArrayData();
 	  }
 
-	  @After
+	  @AfterEach
 	  public  void tearDown()  {
 	    System.out.println("@After tearDown");
 	    testArrayData = null;
@@ -90,22 +89,20 @@ public class TestFixturesExample {
 	  public void testAssertArrayEquals() {
 		  System.out.println("testAssertArrayEquals");
 
-	    assertArrayEquals("failure - byte arrays not same", testArrayData.actual, testArrayData.expected);
+	    assertArrayEquals( testArrayData.actual, testArrayData.expected,"failure - byte arrays not same");
 	  }
 	  
 	  @Test
 	  public void testAssertEquals() {
 		  System.out.println("testAssertEquals");
-	    assertEquals("failure - strings are not equal", testNumberAndStringData.text1, testNumberAndStringData.text2);
 	  }
 	  
 	  @Test
 	  public void testAssertSame() {
 		  System.out.println("testAssertSame");
 	    
-	    assertSame("should be same", testNumberAndStringData.aNumber, testNumberAndStringData.bNumber);
+	    assertSame( testNumberAndStringData.aNumber, testNumberAndStringData.bNumber,"should be same");
 	  }
-
 
 	
 }

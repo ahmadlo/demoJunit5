@@ -3,11 +3,48 @@
   <groupId>com.ahmadou</groupId>
   <artifactId>demoassert</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  
+  <properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+		
+		<junit.jupiter.version>5.6.2</junit.jupiter.version>
+  </properties>
   <dependencies>
+    <!-- https://mvnrepository.com/artifact/org.hamcrest/hamcrest-library -->
+	<dependency>
+	    <groupId>org.hamcrest</groupId>
+	    <artifactId>hamcrest</artifactId>
+	    <version>2.2</version>
+	    <scope>test</scope>
+	</dependency>
+	<dependency>
+    <groupId>org.junit.platform</groupId>
+    <artifactId>junit-platform-launcher</artifactId>
+    <version>1.6.2</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.jupiter</groupId>
+    <artifactId>junit-jupiter-engine</artifactId>
+    <version>5.6.2</version>
+    <scope>test</scope>
+</dependency>
+<dependency>
+    <groupId>org.junit.vintage</groupId>
+    <artifactId>junit-vintage-engine</artifactId>
+    <version>5.6.2</version>
+    <scope>test</scope>
+</dependency>
+  </dependencies>
+  
+  <!-- <dependencies>
   	<dependency>
   		<groupId>junit</groupId>
   		<artifactId>junit</artifactId>
   		<version>4.12</version>
   	</dependency>
-  </dependencies>
+  	
+  </dependencies> -->
 </project>
